@@ -110,10 +110,44 @@ After this all other threads will not acquire lock and will just return object
 First we were taking lock outside, now we are taking lock inside, every thread will not acquire lock now
 
 
+Problems:
+1. Double check loading fails to handle serialization
+  - Serialization: Object converted to bytes[]
+  - Deserialize: bytes[] converted to object
+    So using serialization and deserialization we can create two objects...
+    When deserializing a class, new instances are created. Now it doesn't matter the constructor is private or not.
+    Now there can be more than one instance of the same singleton class inside the JVM, violating the singleton property.
+2. Reflection
+    Using reflection anyone an change the private access modifier of the constructor to anything they want at runtime using reflection.
 
-How to impl it
+Solution 4: Solving serialization problem
+The solution is that we have to implement the readResolve method, which is called when preparing the deserialized object before returning it to the caller.
+The solution is as follows.
 
--
+protected Object readResolve()
+{
+   return INSTANCE;
+}
+
+
+Solution5: final solution for solving all above probelms
+Use enums
+- enums are inherently serializable
+- enums are inherently protected against reflection.
+- If you try to create an instance of an enum using reflection, it will throw an IllegalArgumentException.
+- This is because enums do not have public constructors, and their instances are created by the JVM at the time of class loading.
+- Enums are thread-safe by default and ensure that only one instance of the enum is created per JVM.
+
+So all our problem are solved by ENUMS
+
 
 
 Pro and cons
+Pros
+- Resource efficiency
+- Creating a new object is inefficient ops, it created object and caches it
+
+Cons
+- its difficult ot test singleton class, we usually test using Mocks of object,
+  if you want to test data with different objects(data) but in singleton only one object will be created
+-

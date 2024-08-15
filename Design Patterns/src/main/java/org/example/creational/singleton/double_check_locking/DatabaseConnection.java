@@ -1,14 +1,14 @@
-package org.example.creational.singleton;
+package org.example.creational.singleton.double_check_locking;
 
-public class MultiThreadedDbConnection2 {
+public class DatabaseConnection {
     private String url;
     private String host;
     private String password;
 
-    private static MultiThreadedDbConnection2 dbConnection;
+    private static DatabaseConnection dbConnection;
 
 
-    private MultiThreadedDbConnection2(){}
+    private DatabaseConnection(){}
 
     /*
     public synchronized static MultiThreadedDbConnection2 getDbConnection(){
@@ -23,11 +23,13 @@ public class MultiThreadedDbConnection2 {
      */
 
     // So now, less thread will acquire lock and perm is improved
-    public synchronized static MultiThreadedDbConnection2 getDbConnection() {
+    public  static DatabaseConnection getDbConnection() {
         if (dbConnection == null) {
             // lock
-            if (dbConnection == null) {
-                dbConnection = new MultiThreadedDbConnection2();
+            synchronized (DatabaseConnection.class) {
+                if (dbConnection == null) {
+                    dbConnection = new DatabaseConnection();
+                }
             }
             // ------------------------------------> unlock
         }

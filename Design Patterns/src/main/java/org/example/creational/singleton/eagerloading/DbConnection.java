@@ -1,4 +1,4 @@
-package org.example.creational.singleton;
+package org.example.creational.singleton.eagerloading;
 
 public class DbConnection {
     private String url;
