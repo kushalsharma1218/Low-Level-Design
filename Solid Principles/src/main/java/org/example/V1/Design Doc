@@ -1,0 +1,28 @@
+- Limitations
+    1. Bad code readability, so many if else
+    2. Testing code is also difficult, lets say if we add more birds, we have to add in test also
+    3. Lets say if multiple devs are working for impl of different birds, huge merge conflicts
+    4. Violates Single responsibility principle, Lets say if theres a change in impl of a bird,
+       then we have to make change in bird class... i.e. Bird class has multiple responsibility like how a sparrow flies, crow flies...
+       - Bird class will have to change when the behavior of bird changes.
+       - Bird is also responsible of shared attributes b/w different birds
+    SRP: Every code unit (One class, method, package) in your code should have exactly one well defined responsibility
+
+
+How to identify SRP violation
+- method with multiple if else
+- monster methods: method doing much more then what they are meant to do
+    EX: theres a method
+    savToDB(user){
+        String query = ""
+        User u = new User(); // bunch of steps here to create user
+        createDBCon(); // bunch of steps here
+        save();
+    }
+
+    - this method was created to perform saveToDB, but its creating query, user, and db con
+    - duplicate code, if we have to save some other entity
+    - DRY: don't repeat yourself
+
+- Utility/Helper/Utils classes: These classes do not have one responsibility
+    Sol: Divide utils, DateUtils, TimeUtils...

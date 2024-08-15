@@ -1,0 +1,6 @@
+V5 Design doc: DIP (Dependency Inversion principle)
+
+
+Defination : No two conceret classes should directly depend on each ther
+
+---------------------------------------------------------------

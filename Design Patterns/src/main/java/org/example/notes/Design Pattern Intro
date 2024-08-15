@@ -1,0 +1,33 @@
+----------------------Design Pattern Intro--------------------------------
+
+What is a design pattern ?
+- Well established solution to common design problems
+- Proven solution to existing problems
+- Its kind of solution to a problem someone faced before and created a solution for that.
+- Total 23 design pattern
+
+But why to learn design patterns
+- Shared vocabulary between software engineers
+- saves a lot of time, because these are proven solutions considering edge cases...
+
+
+Type of design patterns
+- Creational design patterns
+    - How object will be created
+    - how many objects will be created
+- Structural Design patterns
+    - How will a class be structured
+    - What all attributes will be there in class
+    - How will class interact with each other
+- Behavioural Design pattern
+    - How to code an action/behaviour
+
+
+Creational design patterns Type
+- Singleton
+- Builder
+- Factory
+    - Simple Factory
+    - Abstract Factory
+    - Factory method
+- Prototype

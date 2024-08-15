@@ -1,0 +1,13 @@
+Dependency Injection
+
+Defi:
+- There should be no need to create a object of dependency by self
+- Instead let the object of your class's object give you that dep object
+
+So now our code base is not dependent on any class
+
+@Autowire in spring boot, this is noting but DI
+
+Benefits:
+- It is easier to test, it is easier to test Crow class by providing different flying behaviour.
+- Easier to change
