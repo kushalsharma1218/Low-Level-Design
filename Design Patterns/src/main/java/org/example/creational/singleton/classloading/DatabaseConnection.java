@@ -7,16 +7,12 @@ public class DatabaseConnection {
 
 
 
-    // this is eager loading
+    // we cant pass define attributes here
     private static DatabaseConnection dbConnection = new DatabaseConnection();
 
 
     private DatabaseConnection(){}
 
     public static DatabaseConnection getDbConnection(){
-        if(dbConnection == null){
-            dbConnection = new DatabaseConnection();
-        }
-
         return dbConnection;
     }}

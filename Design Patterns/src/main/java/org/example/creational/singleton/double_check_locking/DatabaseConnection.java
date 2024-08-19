@@ -11,6 +11,7 @@ public class DatabaseConnection {
     private DatabaseConnection(){}
 
     /*
+    this was time consuming
     public synchronized static MultiThreadedDbConnection2 getDbConnection(){
         // ------------------------------------> lock
         if(dbConnection == null){
@@ -22,6 +23,7 @@ public class DatabaseConnection {
     }
      */
 
+    // more optimised version of singleton
     // So now, less thread will acquire lock and perm is improved
     public  static DatabaseConnection getDbConnection() {
         if (dbConnection == null) {

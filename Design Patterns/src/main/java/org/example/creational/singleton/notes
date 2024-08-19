@@ -130,7 +130,7 @@ protected Object readResolve()
 }
 
 
-Solution5: final solution for solving all above probelms
+Solution5: final solution for solving all above problems
 Use enums
 - enums are inherently serializable
 - enums are inherently protected against reflection.
@@ -150,4 +150,3 @@ Pros
 Cons
 - its difficult ot test singleton class, we usually test using Mocks of object,
   if you want to test data with different objects(data) but in singleton only one object will be created
--
