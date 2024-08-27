@@ -9,8 +9,10 @@
 
 
 ## When to use
-If we have to scenario, where we add property or a new feature, to a base entity at runtime, where final output depends on output of base
+- If we have to scenario, where we add property or a new feature, to a base entity at runtime, where final output depends on output of base
 You should use decorator pattern.
+- You need to add different combinations of features or behaviors to objects. 
+  Decorators can be stacked in different ways to create these combinations.
 
 
 In lot of UI codes, decorator pattern is used

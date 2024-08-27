@@ -25,11 +25,11 @@ and these are extra attributes will be different
 - frontPageDesign
 - funFact/games
 
-**So cant we create a A4_120_ruled desin/prototype and use that to create 1000 copies
+**So cant we create a A4_120_ruled design/prototype and use that to create 1000 copies
 A4_120_ruled is called Prototype**
 
 
-> So when thw factory work, it creates a copy of a prototype and adds the value of fun facts and front page design
+> So when the factory work, it creates a copy of a prototype and adds the value of fun facts and front page design
 > All thing that are generic we can keep that in prototype and all those thing which are specific we can define them in specific copy objects
 
 
