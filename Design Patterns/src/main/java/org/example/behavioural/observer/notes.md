@@ -1,17 +1,18 @@
 # Observer Design Pattern
 
 ## Definition
+> Observer is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.
 
+**When to use**
+- Main Benefit of OBS Pattern: Whenever something happens I might want to do a lot of other things in response to that.
+- Use the Observer pattern when changes to the state of one object may require changing other objects, 
+  and the actual set of objects is unknown beforehand or changes dynamically.
 
 
 ## Problem Statement And Solution
 Consider a method that is doing a lot of work, and we in thinking of improving our design
 created Helper class and handed all of our code to that method.
 
-
-**When to use**
-- Main Benefit of OBS Pattern: Whenever something happens I might want to do a lot of other things in response to that.
--  
 
 
 ```java
