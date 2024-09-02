@@ -4,7 +4,7 @@ public class UiFactoryGenerator {
 
     /** but it stills seems like its violating OCP principle
      * But it's not
-     * If multiple ifs or switch cases are part of your loigc then it doesn't violate OCP
+     * If multiple ifs or switch cases are part of your logic then it doesn't violate OCP
      * */
     public static UIFactory generateUIFactory(PlatformEnum platform){
         return switch (platform){

@@ -1,7 +1,4 @@
 # Facade Design Pattern
-> When ever you are doing too much work within a class or a method, create a helper method/class to that work
-
-> Facade is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes.
 
 
 ## Definition
@@ -9,7 +6,13 @@ Facade means boundary or outside of the building
 - provide cleaner or a simplified view of a building
 
 
+> When ever you are doing too much work within a class or a method, create a helper method/class to that work
 
+> Facade is a structural design pattern that provides a simplified interface to a library, a framework, or any other complex set of classes.
+
+> The main objective of facade design pattern is to provide a simple interface before a complex system.
+> So that the user or client can access the simple interface without knowing the complexity of its sub-system.
+> Facade design patterns are mostly used to hide the dependencies involved in a system from the user.
 
 
 
@@ -34,6 +37,6 @@ We just need to create a helper class, and assign all the task, we were doing to
 Client just need to call this helper method and then helper have to perform all the work.
 
 
->You can isolate your code from the complexity of a subsystem.
+> You can isolate your code from the complexity of a subsystem.
 
 > A facade can become a god object coupled to all classes of an app.

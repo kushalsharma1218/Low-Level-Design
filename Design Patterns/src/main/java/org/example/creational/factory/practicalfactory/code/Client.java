@@ -9,7 +9,7 @@ public class Client {
         Flutter flutter = new Flutter(PlatformEnum.ANDROID);
         UIFactory uiFactory = flutter.getUIFactory();
 
-        /** We are sure now the button meny dropdown we receive will be Android based, client doesn't need to worry about anything else */
+        /** We are sure now the button, menu, dropdown we receive will be Android based, client doesn't need to worry about anything else */
         Button button = uiFactory.createButton();
         Menu menu = uiFactory.createMenu();
         DropDown dropDown = uiFactory.createDropDown();

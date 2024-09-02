@@ -3,6 +3,8 @@
 
 ## Definition
 
+>The decorator pattern is a structural design pattern that allows behaviour and functionality to be dynamically added to an object without affecting the behaviour of other objects in the same class.
+
 >If we have any entity to which we want to change behaviours or add new behaviours, 
 
 >Decorator is a structural design pattern that lets you attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors.
@@ -149,7 +151,7 @@ Observations
 - Right from the beginning, we know I have a ice cream cone as the base ingredient
 - When ever we are adding something new the cost also gets added
 
-Implementation
+#### Implementation
 
 1. Define a interface/abstract class that represents the thing that we are trying to construct.
     ```java

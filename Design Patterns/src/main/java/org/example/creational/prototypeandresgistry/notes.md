@@ -4,6 +4,12 @@
 > Often there are scenarios when we don't want to create object from scratch 
 rather we prefer creating a copy of template/prototype and then later you can make the specific changes
 
+> Enables the creation of new objects by copying an existing object. 
+> Prototype allows us to hide the complexity of making new instances from the client. 
+> The concept is to copy an existing object rather than create a new instance from scratch, something that may include costly operations. 
+> The existing object acts as a prototype and contains the state of the object.
+> The newly copied object may change the same properties only if required. This approach saves costly resources and time, especially when object creation is a heavy process.
+
 
 Example
 Consider a notebook which has
@@ -14,14 +20,14 @@ Consider a notebook which has
 - frontPageDesign
 - funFact/games
 
-Classmate want t create 1000 notebooks of a4 size page with 120 pages each.
-Can we say these are common attributes that will be fixes in every notebook
+Classmate want t0 create 1000 notebooks of a4 size page with 120 pages each.
+Can we say these are **common attributes** that will be fixes in every notebook
 - noOfPages
 - type : blank/ruled/dotted
 - height
 - weight
 
-and these are extra attributes will be different
+and these are **extra attributes** will be different
 - frontPageDesign
 - funFact/games
 
@@ -55,10 +61,6 @@ class Client{
 ```
 
 Once prototype is created, we just have to change some attributes.
-
-
-
-
 
 
 ## Problem statement
@@ -180,31 +182,36 @@ Benefits
 
 
 ```java
-class Student{
+public class Student {
     private String name;
-    private Integer age;
-    private String phoneNumber;
+    private String age;
+    private Double studentPercentage;
+    private String batch;
+    private Double avgBatchPercentage;
     
-    Student copy(Student st){
-        Student copy = new Student();
-        // set properties
-        
-        return copy;
+    public Student() {
+    }
+    
+    // copy constructor
+   // using this enables subs classes to copy parent attributes
+    public Student(Student student) {
+        this.batch = student.batch;
+        this.age = student.age;
+        this.studentPercentage = student.studentPercentage;
+        this.avgBatchPercentage = student.avgBatchPercentage;
+        this.name = student.name;
     }
 }
 
 class IntelligentStudent implements Student{
     private String rollNumber;
 
-    IntelligentStudent copy(IntelligentStudent st){
-        IntelligentStudent copy = new IntelligentStudent();
-        // set properties
-
-        return copy;
-    }
+   public IntelligentStudent(IntelligentStudent intelligentStudent){
+      super(intelligentStudent); // this will initialise all variables in super
+      this.iq = intelligentStudent.iq; // we can initialise all variable of current class here
+   }
 }
 
-/** previous code will not work here, we have to check which type of object st is*/
 class Client {
     public static void main(String[] args) {
         Student st = new Student(); or new IntelligentStudent();
@@ -276,7 +283,7 @@ This way we can create multiple object using a common template or prototype.
         }
     }
     ```
-3. Prototypes are already define and are store at application start time
+3. Prototypes are already define and are stored at application start time
 4. Client calls the registry to get prototype, it creates a copy of the prototype and client can use the copy
 
 > Note: Client should have visibility how to use the prototype, what should be the key
@@ -285,10 +292,17 @@ This way we can create multiple object using a common template or prototype.
 
 > ApplicationContext in Spring boot is example of registry
 
-> Our main aim was to create copy of subclass object and we can't access the parent fields, 
+> Our main aim was to create copy of subclass object, and we can't access the parent fields, 
 > so in that case we created copy constructor so its initialize all variable of that class. check code 
 
 
 > But if we are creating object using constructor why do we need clone(), 
-> because method of correct class gets called automatically. Student can be any type, we don't have to check before copying else we have to check 
-> if it is intelligent student then we will cal intelligent student constructor.  
+> Because method of correct class gets called automatically. Student can be any type, we don't have to check before copying else we have to check 
+> if it is intelligent student then we will call intelligent student constructor.
+
+
+## When to use
+- Creating Objects is Costly
+- Use the Prototype pattern when your system needs to support a variety of objects with slight variations.
+- Use the Prototype pattern when your system requires dynamic configuration and you want to create objects with configurations at runtime.
+

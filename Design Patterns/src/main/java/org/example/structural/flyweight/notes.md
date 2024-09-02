@@ -2,8 +2,11 @@
 
 
 ## Definition
-If you have a class whose objects demostrate intrnsic and extrinsic peroperties 
+If you have a class whose objects demonstrate intrinsic and extrinsic properties 
 and if you see that there is extra memory usage because of this, you consider using Flyweight
+
+
+> Flyweight design patterns are structural design patterns that help to reduce the memory usage when creating numerous objects by sharing their common states.
 
 ## Problem Statement And Solution
 

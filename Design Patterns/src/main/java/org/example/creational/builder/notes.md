@@ -1,16 +1,17 @@
 # Builder Design Pattern
 
-#### **Definition**
-Allows us to create a object where we have these constraints
+## Definition
+
+> Builder is a creational design pattern that lets you construct complex objects step by step. 
+> The pattern allows you to produce different types and representations of an object using the same construction code.
+
+**Use Builder when**
 - Too many attributes
 - Validate before creating object, like if we all the checks passed then only create object
 
 
-> Builder is a creational design pattern that lets you construct complex objects step by step. The pattern allows you to produce different types and representations of an object using the same construction code.
-
-
-#### **Problem statement**
-There is a class with a lot of attribute
+## Problem statement
+Create a object of a class which has a lot of attributes.
 
 ```java
 class Student {
@@ -29,7 +30,7 @@ class Student {
 How will you create the object of class student?
 
 
-#### **Solutions**
+## Solutions
 **Approach 1**
 
 We can use no arg constructor to create object and then set the attributes using getters and setters
@@ -39,7 +40,7 @@ student.setfName("some name");
 student.setsName("some name");
 ```
 
-Problems
+**Problems**
 1. If we don't use any library, we have to create a lot of getters and setters
 2. What if we want to validate an object of class **even before creating a object**
    - let's say no student with gradYear > 2022 should be allowed
@@ -52,7 +53,7 @@ Problems
 
 How?
 - Inorder to perform validations in constructor we have to use parameterized constructor
-- So we have create constructor that accepts all parameters
+- So we have created constructor that accepts all parameters
 
 ```java
 class Student {
@@ -80,9 +81,9 @@ class Student {
 4. What if we dont have the required parameter values ? let's say we only know fName and sName and age and want to create object. So either you will have to pass null values for other params or you wil have to create more constructors (Constructor overloading),
 
 Problem with constructor overloading
-- Too many constructors, Lets say we have N attributes, and if we find combinations for them as 2^n, 
+- Too many constructors, Lets say we have N attributes, and if we find combinations for them as 2^n, For ex: if we have 2 attributes then we can have 4 combination of that. 
 - We might end up creating 2^n constructors for every combination of attributes 
-- There might be soe combinations, where overloading won't be possible due method signature (order of params)
+- There might be some combinations, where overloading won't be possible due method signature (order of params)
 
 > So surely constructor overloading is not the solution and neither we can pass null values
 
@@ -190,10 +191,10 @@ class Student {
 ```
 
 
-But did you see your Builder class, it doesn't build anything actually it more kind of a helper class
-Out main objective is to create Student object, btu client has to first create helper object and then student object
+But did you see your Builder class, it doesn't build anything actually it more kind of helper class.
+Our main objective is to create Student object, but client has to first create helper object and then student object
 
-Lets give Builder class a method so that it can itslef create the object of Student
+Let's give Builder class a method so that it can itself create the object of Student
 
 
 ```java
@@ -230,7 +231,7 @@ public class Client {
 
 
 
-But can we make process a bit more easier for client by using build method
+But can we make process a bit easier for client by using build method
 We want to achieve something like this
 
 ```java
@@ -266,10 +267,10 @@ class Builder {
 ```
 
 
-Theres still a loop hole and bypass technique
+There's still a loophole and bypass technique
 **Student constructor is still public and can be used to create object**
 
-Make constructor private but if we make it private then we wont be able to call return new Student(this);
+Make constructor private but if we make it private then we won't be able to call return new Student(this);
 
 **Make Builder class static inner class of Student so that we can call student constructor from build()**
 

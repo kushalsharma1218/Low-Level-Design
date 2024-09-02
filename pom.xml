@@ -11,6 +11,7 @@
     <modules>
         <module>Solid Principles</module>
         <module>Design Patterns</module>
+        <module>PracticeProblems</module>
     </modules>
 
     <properties>

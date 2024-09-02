@@ -2,17 +2,20 @@
 
 ## Definition
 - Adapter : Kind of converted, Power adapter
-- Its a kind of intermediate layer that transform one form to another, like 2/3 pin extension
+- It's a kind of intermediate layer that transform one form to another, like 2/3 pin extension
 
+> Adapter is a structural design pattern that allows objects with incompatible interfaces to collaborate.
 
 > Adapter DP ensures that our code base remains maintainable
 > when we are talking to third party api library/sdk
 
+> This design pattern acts as a bridge between two different interfaces.
+> It can convert the interface of a class, to make it compatible with a client who is expecting a different interface, without changing the source code of the class.
 
 ## Problem Statement
-Lets suppose you have a software system, it is connected to third party api like aws.
-- I might want to change third party provider in future
-- Third party api we were dependent on gets deprecated.
+Let's suppose you have a software system, it is connected to third party api like aws.
+- We might want to change third party provider in future
+- Third party api we were dependent on, gets deprecated.
 
 
 
@@ -74,7 +77,7 @@ We don't want to tightly couple third party into out code. So lets use adapter t
     }
     ```
     
-    purpose of adapter is create object of YesBan and implement Bank interface methods using yes bank object
+    purpose of adapter is create object of YesBank and implement Bank interface methods using yes bank object
 3. If some new bank we have to use lest say Icici bank, just create adapter and use.
 
 

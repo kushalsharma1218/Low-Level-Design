@@ -9,9 +9,10 @@
 ## Factory Method Design pattern
 
 ### Definition
-Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created.
-In simpler terms, it's a way to create objects without directly specifying their exact type.
+> Factory Method is a creational design pattern that provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created. 
+> In simpler terms, it's a way to create objects without directly specifying their exact type.
 
+>The factory method is a design pattern that provides an interface or abstract class for creating an object and allows its subclasses to decide which class to be instantiated.
 
 **When to use**
 - We can create a method factory method, when there is decision-making performed for object intantiation
@@ -37,7 +38,8 @@ class UserService{
 }
 ```
 Let's decide what's DataBaseCon should be class, interface or abstract class
-If DataBaseCon was a class then **Dependency Inversion Principle** will be violated, it should be interface or abstract class
+If DataBaseCon was a class then **Dependency Inversion Principle** will be violated, it should be interface or abstract class.
+
 What about Query ? Query should also be a interface or abstract class,
 because in db.createQuery() can return a sql, psql, mongodb query... . So we don't tightly couple it.
 
@@ -110,15 +112,15 @@ DatabaseCon has 3 factory methods
 - It holds a lot of factory methods and the class which implements it wil have the responsibility to return corresponding objects of different types.
 
 
-> Interfaces should be light weighted
+> Acc to ISP, Interfaces should be light as possible
 
 
-#### Abstract Factory
+# Abstract Factory
 
-#### Definition
-Creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+## Definition
+> Creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes.
 
-In simpler terms, it's like a general contractor who knows how to choose the right components (like doors and windows) for a building project without specifying the exact details of each component.
+> In simpler terms, it's like a general contractor who knows how to choose the right components (like doors and windows) for a building project without specifying the exact details of each component.
 
 
 
@@ -189,9 +191,19 @@ class UserService{
 > Widely used in UI libraries
 
 
+## Pros
+- Factory Method Pattern allows the sub-classes to choose the type of objects to create.
+- Factory design pattern provides great extensibility that lets us add new classes without changing the application.
+- Factory design pattern leverages loose coupling and eliminates hard binding the application-specific login in the code.
+- The factory method returns the interface. So, it can work for any concrete product implementation.
+- Using a Factory allows the consumer to create new objects without having to know the details of how they're created, or what their dependencies are - they only have to give the information they actually want.
 
+## Cons
+- It introduces additional classes and interfaces, adding a layer of abstraction that can make the code more complex to understand and maintain, especially for those unfamiliar with the pattern.
+- Testing the factory logic itself can be more complex.
+- It’s important to use the Factory Method pattern judiciously to avoid over-engineering the application. Simple object creation can often be handled directly without the need for a factory.
 
-## Practical factory
+# Practical factory
 So far we have learnt Factory method that return a corresponding object and abstract factory that also in some way 
 returns a corresponding object
 
@@ -212,4 +224,6 @@ class DatabaseFactory{
 
 **Where to use**
 - When ever there are multiple variants of a class, and you want to create an object of the correct variant based on some parameters
-- 
+
+
+> Spring bean factory in spring framework uses factory pattern
